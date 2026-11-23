@@ -264,7 +264,7 @@ body:not(.lobby) #lobby{display:none}
 const tg=Telegram.WebApp;tg.ready();tg.expand();try{tg.setHeaderColor('#04180f');tg.setBackgroundColor('#04180f')}catch(e){}
 const $=i=>document.getElementById(i),sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let G='dice',over=0,side=0,busy=false,ME={},rot=0,crot=0,prev=['🍒','🍒','🍒'];
-async function api(p,b={}){const r=await fetch(https://fortuna-bot.serveousercontent.com,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({initData:tg.initData,...b})});
+async function api(p,b={}){const r=await fetch(https://fortuna-bot.serveousercontent.com?serveo-skip-browser-warning=true,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({initData:tg.initData,...b})});
  const j=await r.json();if(!r.ok)throw new Error(j.error||'Ошибка');return j}
 const NAMES={dice:'Dice',coin:'Монета',slots:'Слоты',wheel:'Колесо',mines:'Mines',crash:'Crash',limbo:'Limbo',plinko:'Plinko',keno:'Keno',roulette:'Рулетка'};
 function setMe(m){Object.assign(ME,m);if(m.balance!==undefined)countUp(m.balance);
